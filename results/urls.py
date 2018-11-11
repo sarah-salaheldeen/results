@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include , path
+from importStudentsData import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('authentication.urls')),
 	path('calculateResults/' , include('calculateResults.curls')),
+    path('importExcelSheet/' , views.csv_file_upload , name="csv_file_upload"),
 ]
